@@ -1,0 +1,980 @@
+pristine:b69fe67e3f013401020c6f0af5ce6d6bdcbb131d03830f73943bd90fd45c57bf
+[Initial version
+alex@das.li**20171231004849
+ Ignore-this: af0522530dfeb26b4b3ca7c4a4f5209a
+ Text-wait-scroll works, but a little janky
+ Structured offline and controls data
+] 
+hash: 0000096369-bd362ae7ee76b37d9d6edab84f21c62a6b2c0f0bc14fc590f08dc91959e02856
+[Moved position out of Teletype
+alex@das.li**20171231020625
+ Ignore-this: 587025b1c235e3abac614a3eeb50dcdf
+ Teletype no longer deals with positions
+ De-jankified things
+] 
+hash: 0000004893-d29a65118d7130ea782c4d453054d3df104b46d145f11d93b2e1a8003b0bfb05
+[Improved text-wait-scroll
+alex@das.li**20171231081726
+ Ignore-this: 5c6cf3badda5955e917ad993a1da87b4
+ Generalized teletype to arbitrary number of lines
+ Abstracted text-wait-scroll continuations
+ Pause and slow-motion buttons for reactimate
+] 
+hash: 0000005356-7e22369aa04644fbf8d1107bfe054cd3c231e3cfadee70f5bcdf4ab81256f403
+[Setup for PEOPLEMON
+alex@das.li**20171231225312
+ Ignore-this: f5322a987a2d9463b8f562934e33b2fb
+ Changed text-wait-scroll parameters
+ Updated screen dimensions and scaling
+ Used texture dimensions in `drawSprite`
+] 
+hash: 0000003249-d9042923f772a1e844f82f9cdc365ff1f0dbf7d7d48e666a18b0cef0e7107595
+[Added TextBox module
+alex@das.li**20180101203256
+ Ignore-this: 3e76744a420e4f00a844c11ca968752a
+ Abstracted text-wait-scroll code and moved it out of Main
+] 
+hash: 0000004986-239bbd86c2b46b374aeef0a2012de4f690afdd1d7fbc51d8e892ee4f8cf324ca
+[Added Menu system
+alex@das.li**20180112171654
+ Ignore-this: ebe9cde84fa1854d7df85f7a7d3d94c0
+] 
+hash: 0000010573-cac0664fb82ba3e328a9bf08c6f30f40a237c7ba73630911cb8372c7694ad287
+[Invocation, or, self-advancement
+alex@das.li**20180117033520
+ Ignore-this: 9b1dbdc911f67d7365b454e3be7a410d
+ Implemented recursive continuations, wherein menu options can themselves be the whole program continuation.
+] 
+hash: 0000004239-e19c689154b836dadccfb7d0f0e8dd6f35975c25e2ba48e1616caac0a9be556f
+[A more robust prose menu
+alex@das.li**20180121071221
+ Ignore-this: bafcb73b4b40127acbd9218bd7df893f
+ Added menu labels and prose strings to OfflineData system
+ Fixed scrolling menu looping
+ Added TextBox continuations to TextBox module
+ Added ControlsMaps module
+ Cleanup
+] 
+hash: 0000016428-ca3803ffe5812b1e5b6e653450051fbdb2b1d471964ce41144cff9c6fc8b0d17
+[The moves system
+alex@das.li**20180125181305
+ Ignore-this: 95d0c8db359b6519bb4249977e97e214
+ Menu options define entire move presentations
+ Used Text module to fix offline string loading
+ Added random generator parameter to mainAutomaton
+ Added more offline data
+] 
+hash: 0000008550-2dd426f609db635f59c8ab1c98a965ba2f9450dfd4c03b60ab7307ae32066712
+[Two examples of generalized move progressions
+alex@das.li**20180130032007
+ Ignore-this: 645db350d65b0a9c7926740c96e8c622
+ Abstracted parameters with Reader monad
+ Added Tackle move
+ Added namespaces for offline data names
+] 
+hash: 0000016951-b52687c00e3680b33bda70883daeb1ec28a73d2f53ee649e8d7e909119acc40b
+[Separated default scene
+alex@das.li**20180131015657
+ Ignore-this: 828a4f1362ff170b167fe8f1d6721ce9
+ Defined continuation wrappers as `swont` and `dSwont` 
+ Moved continuation wrappers into do-notation
+ Moved default scene to separate SF, composed it in do-notation
+] 
+hash: 0000007516-f4221fcb98dd03337a56380036cb07b7af02e2b9c7c516e7d7f296e65d79adfb
+[Used Text module almost everywhere
+alex@das.li**20180131070509
+ Ignore-this: 24f319a82b2e5bdaf510e678415706b0
+ Removed calls to `pack` and `unpack` surrounding OfflineData access
+] 
+hash: 0000002515-ce1565c6b4a2755ed3b58dc7fcba7ea84d9d5b8473cc203f0559d3a2c0c4aadf
+[Further abstracted and augmented battle system
+alex@das.li**20180203224002
+ Ignore-this: 170f94bacb76a1058a83ae63c444e732
+ Abstracted standard move continuation template
+ Abstracted move failure
+ Implemented accuracy and elemental effectiveness
+] 
+hash: 0000015616-a9cca1d045033d2a735a5265f3a284a4feac2fac17a9795e2853e80fd04f8d55
+[Basic complete battle flow
+alex@das.li**20180211220812
+ Ignore-this: 3ab2b18e921a76f6995d5b86d49d2b2d
+ Representing, tracking, and animating hit points
+ Explicit representation of how to feed move parameters back into battle parameters
+ Enemy moves
+ Speed and initiative
+ Basic effectiveness report only after a strong one
+ Final continuation when hit points reaching zero
+] 
+hash: 0000018487-3c45ca8015e432d462e82175acbc53b124c73af341c09e2b1a7ffa404e0a0c2c
+[Battle modules
+alex@das.li**20180217213001
+ Ignore-this: 45ad8e20f9d524f1998d38289424bb21
+ Split up monolithic battle code into separate modules
+] 
+hash: 0000041252-b6549448f2ee24d664c756035e49881f1484b9b02740973b2dad71c3f03cf000
+[First non-standard move
+alex@das.li**20180217214356
+ Ignore-this: 41df979a62e86efd3de574d3cd398d6a
+ Added MeToo move
+ Added Authority element
+ Added msSubjectName and msObjectName fields to MoveState
+ Removed unnecessary distinctions between Friend and Enemy continuations
+] 
+hash: 0000022310-59be05b9ac7d5fa5e653029c9b8bdced285782062951bf57f49ca7bb722f8300
+[Field avatar animation
+alex@das.li**20180218051859
+ Ignore-this: 8f26088772b6fe4292c5c92b3c23e4f2
+ New sprites for avatar
+ New controls map
+ Animation and controls timed for tile-to-tile movement
+] 
+hash: 0000007500-52ecee59ab49b729acd72591e7d4106cd211e3ad2d400a51ea9073f86a9bcc95
+[Tracking field avatar position
+alex@das.li**20180218191616
+ Ignore-this: e489821169b8957a2c7cb3062a70713c
+ Added translation signal to avatar animation
+ Fixed numerical converison in Output.hs
+] 
+hash: 0000003456-2016c6f6e98c3e8fc39499bf02255f8bfdfcd3b0281c9561bfce22eb62a01964
+[Cross-tile walking animations
+alex@das.li**20180218193428
+ Ignore-this: 42170676b856f3d50aac86f133a93f99
+ When trajectory is constant, freeze and pass animation to the next tile's continuation
+ Made standing continuation pass `AvatarStop` to the `step` function
+] 
+hash: 0000002210-5116f24fced248c6d816d1e23059b996630a027c9a234f4dca69ddf8556f542d
+[Terrain drawing and collision checks
+alex@das.li**20180218231618
+ Ignore-this: fb50f000420a59e63c4e377bc253c501
+ Added terrain representations
+ Added terrain drawing with Tiles
+ Preempted stepping into colliding terrain in `step` function
+] 
+hash: 0000005165-4ff1758a05b49040552d4d93cd1701d78372a53c805611a90bd440cb428de956
+[Random encounter battles
+alex@das.li**20180219210817
+ Ignore-this: c153806cb462f67b5ebc392bc75d9ece
+ Added encounter rate to TerrainElement
+ Added encounter check to moveAvatar and message channel
+ Added switch from field to battle and back
+ Parameterized field and moveAvatar on initial position
+] 
+hash: 0000005955-d7971c2c6e87cd21efade34558f9088a0d1fe5c6fca00c5a3508b3967bf5101f
+[Field modules
+alex@das.li**20180220064223
+ Ignore-this: ffcc589053d7ee52092845a6448a8e4b
+ Split up monolithic field code into separate modules
+] 
+hash: 0000021675-666bca4475e2341289a29832af333fb010b51244df2f33552c0b6660c26133fa
+[Removed sdl2-mixer-0.1
+alex@das.li**20180224232551
+ Ignore-this: 3211abb8e668c46a28e7122134df53a5
+ Removed local changes to sdl2-mixer because they are now on hackage
+] 
+hash: 0000072494-d8b8cd03401a78d596e952f3f86e378a2ba2efc3554fef8735f28b90b3c757b7
+[Updated README.md
+alex@das.li**20180225010430
+ Ignore-this: 6047cee2f528f1e078ec68481ec17578
+ Added descriptions of tools and commands to build the project
+ Added list of system dependencies
+ Added list of Cabal dependencies
+] 
+hash: 0000002494-9a65252af431acd6cb9b8567eae8e0a58af0b2fe93d099f36da00cbe28bf9365
+[Updated README.md
+alex@das.li**20180225011207
+ Ignore-this: 7d3b9a4acdc287ff5f310750bcf4e2d5
+ Added Homebrew commands for installing system dependencies
+] 
+hash: 0000000562-3334bf80b577c5aa96b2344fb00330bd5f49fb078aebc4edae029ab97e892d95
+[Updated README.md
+alex@das.li**20180225185855
+ Ignore-this: bac546cf67649893127daf03decec308
+ Changed exec command to use the build with the Stackage nightly snapshot
+ Clarified that we plan to switch to LTS snapshot
+] 
+hash: 0000000942-576d00409479eb1b31f39fc780992bd99df71f9c86e29bf71a64f428d740490e
+[Parameterized damage
+alex@das.li**20180226183458
+ Ignore-this: ca9f29466bcc17cade0a1c72b1cd4c5b
+ `Ppmn`-specific damage calculation
+ Added attack and defense parameters
+ Added buff/debuff effects for attack, defense, and accuracy
+ Added notes about offline data to README.md
+] 
+hash: 0000009243-d3c8a722a17475cffe0be4effc0cc71dabc8d32b78dfce842c36963064f152f2
+[Cleaned up parameter passing
+alex@das.li**20180228083148
+ Ignore-this: 41a1a4462901e0c79324cfab858dbff
+ Consolidated state parameters in Character
+ Saved and recalled direction in field-to-battle transition
+] 
+hash: 0000007362-f9e8a8ae5ff8268e2b2c6428b1775dd2151a986dca4cf1a46efd3910a1657392
+[New battle menus and cancel continuations
+alex@das.li**20180302174339
+ Ignore-this: 994de19cc0fc92f708f16564272d31b6
+ Added main battle menu
+ Added items and item menu
+ Added menu cancelation continuations
+] 
+hash: 0000005432-bff1703abfa75abc380db513a687eeb0f275ab8a7bacc165317a58c907b193a8
+[More field-battle communication
+alex@das.li**20180305165523
+ Ignore-this: 826dc8926090cb17304cbcd75f89f0c0
+ Encounter rates are associated with specific Peoplemon
+ Peoplemon parameters maintained across battles
+] 
+hash: 0000011008-023ffa73ca42b6a36e64be57836f2899e48ac16555ddbd11d3e1d00d01b2e9cc
+[Parameterized state continuations on the type of state
+alex@das.li**20180313053905
+ Ignore-this: c1c2be06854ed084ed805565deb0fe47
+ Abstracted HP effect as acting within a `PpmnAction` state
+ Passed an `embed` combinator to abstract effects
+ Removed all exact dependence on `BattleParameters` and `MoveState`
+] 
+hash: 0000029299-1d05d0cd4d58176780982adff90dfa1bdd0ea7350415faa3b3b510dfb8d76ff9
+[Expanded state type polymorphism
+alex@das.li**20180316165045
+ Ignore-this: d718978e7c1c932c14599203dc0ba1d0
+ Used polymorphic monads in all moves;
+ Used embedding in all moves;
+ Made `BattleParameters` and `MoveState` independent;
+ Moves now receive `BattleMove` state from battle anchor
+] 
+hash: 0000034478-de2e3f57cb19d11873c57d4a1a658983f810520e127c631a053290a3113dadb0
+[Finished abstracting effect monads
+alex@das.li**20180319041230
+ Ignore-this: d803e267891c20753889843ec73bd840
+ Made embedding a `MonadReader` parameter instead of a formal function parameter in effect monads;
+ Treated effect monads as `RWST` types instead of `StateT` types;
+ Made item continuations use `ItemParameter`
+ Made `stdHPEffect` use true polymorphic embedding parameter
+ Cleaned up the mess of bad names and inconsistent module placement
+] 
+hash: 0000043912-4d7d5bd12b0682fe7dd40569c2e8df34f11872ff20d17640a53467dbe2534407
+["Run" battle command
+alex@das.li**20180320011555
+ Ignore-this: 62c8dde92216ee80e8fa74fe0c643be4
+] 
+hash: 0000000493-07ac8dd376269a40e07c96bfe94296a53ba5b880af6c5c941af88225877f2782
+[Wild battle intro
+alex@das.li**20180321070459
+ Ignore-this: 934940b2698f7a652f74cbdcc6cbad09
+ Added intro sequence with trainer sprite to battle;
+ Made `BattleScene` class more granular;
+ Formalized Potion item;
+ Shortened wait times for MeToo rejection
+] 
+hash: 0000010109-b831b546dc23fb6bc5bd323ae4758840050849893fe2845d51b296d563d07599
+[Upgrade to Stackage LTS 11.1
+alex@das.li**20180321073119
+ Ignore-this: 4ca643d3661679d14e3c3c5a8fc87b2d
+] 
+hash: 0000000862-0d8f5814c38cc29a5521a018a0e700bbf1699a544a67af4b91b35ce717289fb4
+[Formalized Peoplemon definitions, battle intro
+alex@das.li**20180322072625
+ Ignore-this: af7fe67f61c3a59e756b8b3930eb83b2
+ Created `Ppmn` module and modules for each individual;
+ Moved Ppmn conversion code to `Field.Parameters`;
+ Moved battle intro code to `Battle.Vignette` and `Battle.Output`
+] 
+hash: 0000013823-cc0b8a7c03578bb7af977b32e3824fc2310d5177daf0aaab6a649431e73744ac
+[Arrangements for field inspection
+alex@das.li**20180326170046
+ Ignore-this: c58a9f95b82bb7c06ef16553f986ae86
+ Added inspection command to `avatarControl`;
+ Changed `locale` to invoke continuations produced by `animateAvatar`;
+ Moved `Character`- and `Terrain`-related data declarations to `FieldParameters` module;
+ Abstracted combinators in `Character` module;
+ Moved wild battle effect into `Field.Battles` module
+] 
+hash: 0000015961-b6777630551b942a9d0caeb391e574c01c3306989ac813dd098b5e15005fe4a4
+[General terrain inspection effects
+alex@das.li**20180326170118
+ Ignore-this: 771be80196e276c6c62c2815c79fdc4b
+ Added `teInspect` field to `TerrainElement`
+ Changed `Field.Avatar` to use `teInspect` state continuation
+ Added white background to text box
+] 
+hash: 0000001723-6801d8d031038591f633984a3d63e7a4ffa9d2d62d69478a000a3ab0aca1819a
+[Embedding conveniences
+alex@das.li**20180328011628
+ Ignore-this: 8e664a77b93f0b4684af6baeeeddf758
+ Abstracted `Embedding` constructor and `embedOutput` as `embedArr`
+] 
+hash: 0000001316-9c724d8d6e2d89712e1ac40ebea6dd7fb9eac7d9dbcb3d0322ad860f202f08f3
+[Main field menu
+alex@das.li**20180328234228
+ Ignore-this: 3c3ab16ead86771cb16bf4dee6f14d2a
+ Added start/select buttons to `Controls`;
+ Added pause action to avatar;
+ Added field menu in `Field.Menu` module;
+ Used embedding in `Battle.Anchor`
+] 
+hash: 0000006417-63837e9b813dd4704717196449b6128005acfff405d8117a7251a67c3a5c6ac1
+[Generalized item menu
+alex@das.li**20180331233539
+ Ignore-this: 59c8f83165885813092e3b2c99726ed
+ Added `Inventory.Menu` module;
+ Added menu-embedding functions to `Menu` module;
+ Added items menu to field menu options;
+ Added white background to menus
+] 
+hash: 0000006322-9546a73f387beac226d55804e1bff29338c4efe318cf125306927496ed78f8b8
+[Refactored modules
+alex@das.li**20180401060350
+ Ignore-this: 994814dd83e0284819822d342351d82d
+ Created `PpmnParameters`, `StateClass` and `Inventory.Parameters` modules
+ Removed unnecessary dependence on `Battle.Parameters`
+] 
+hash: 0000016151-f32e15a3463e43c9ac3d322ed48d7a9b6c5e181124927e2cf6f367ab70ba9291
+[Separate item continuations for Field/Battle
+alex@das.li**20180401064416
+ Ignore-this: c3972063c7f0fbc2b5f89e65e6475fec
+ Updated how continuation is extracted from item menu
+] 
+hash: 0000003144-0b79eb150b222e2fcdf1a12e21e15f07ea87da3837f150f3d7b1085209d47071
+[Item stock tracking
+alex@das.li**20180402162712
+ Ignore-this: 36fc6ac3e708b831da5f319a0d8abbb2
+ Changed inventory representation from list to map, indexed by item name (type `LabelName`);
+ Included stock-update effects in item-use and and item-finding effects;
+ Added counters to item menu;
+ Parameterized `scrollMenu` on its `presenter`
+] 
+hash: 0000004293-d877555809d346308cff109611d99f705fecf4bcfeb2ed3adc426d8087f6fbda
+[Added terrain traversal event and continuation
+alex@das.li**20180403170434
+ Ignore-this: 694e02f2be487a00e2563d3c2825d05
+ Added check for terrain traversal event in Avatar step;
+ Fixed menu item leading, name of `Lauren`
+] 
+hash: 0000002675-3068f2f7be64dc954fe4e1d5573c76987da17a01e1a43f912f6f7be95058402f
+[Changing of locales
+alex@das.li**20180404171047
+ Ignore-this: fd07a470767a5beadc82dc70f0ed765e
+ Wrote a (very short!) traversal continuation that changes locales;
+ Parameterized `withEmbedding` on the embedding composition function;
+ Enabled VSync
+] 
+hash: 0000003127-5420964c47d4fe4f6f367b1db6582883f0cfdf39b7e1a46389877a952c9ba4d4
+[Non-player characters
+alex@das.li**20180408030203
+ Ignore-this: 7860cd60b0317756c1acf9af3a4a0e57
+ Replaced `cSurroundings :: Terrain` with `cOccupy :: Terrain -> Terrain` in `Character`;
+ Made character continuation functions pass terrain around explicitly;
+ Made character animation SFs output only `Character`;
+ Changed `locale` to apply fed-back occupation updates to characters' input terrains;
+ Abstracted gaits and stances output with a translation parameter
+] 
+hash: 0000018999-adcf493690203501d52ce4e79349797016b35bbbf8dd610864e69769d4e5813d
+[Added music tracks to offline data
+alex@das.li**20180408030424
+ Ignore-this: b76e07ce4dc06523b6a9a99986713938
+] 
+hash: 0000000402-04440151ac9cf33d6edd61470e4430dd51584cfe8bbf587a69459786dfd8f355
+[Revised field actions from characters
+alex@das.li**20180412165124
+ Ignore-this: a4bccc8113db71041144169a727b42ea
+ Made encounters ordinary traversal actions;
+ Made a `FieldAction` message constructor with a field action parameter;
+ Mashed a bunch of data declarations together into one module, `EveryFuckingDataType`
+] 
+hash: 0000020588-05fff0695bcb0b4d5c03beff1c6886a42d81e818ca9a73b21296aaf7278d6e89
+[Un-fucked the module organization
+alex@das.li**20180413011545
+ Ignore-this: 6259e38d987362a26ec7823aea231723
+ Removed `EveryFuckingDataType` module;
+ Added hs-boot files and `{-# SOURCE #-} import` statements;
+ Returned `TerrainElement` to `Field.Terrain` module, `Character` to `Field.Character` module;
+ Moved specific terrain element definitions from `Field.Terrain` to `MainAutomaton` with the others;
+ Defined `CardinalDirection` type and merged character move messages
+] 
+hash: 0000018459-9fd4cbc39bcb11ed9e68e70eeb60ef193cf98685a7b6b44d23eecfbff1797fec
+[Cleaned up character speech
+alex@das.li**20180413021750
+ Ignore-this: 59200f089cc0765872e83a48da7323e3
+ Added an integral `cIndex` field to `Character`;
+ Renamed `ProfessorSpeech` as `CharacterSpeech`, parameterized on character index;
+ Renamed the character re-drawing continuation as another normal state: `turning`;
+ Made normal character event output of type `Event Message`
+] 
+hash: 0000005737-3e8584c0be160a3b7397876fefe266fa0934c7f4af94144644449b184cdc240c
+[Updated README.md
+alex@das.li**20180413023552
+ Ignore-this: e9db1b37c004a23feef81185d1df8cb6
+] 
+hash: 0000000256-8f5a12b8d7b46715bda8c365442ea8f8b138e49ca11c053a24654d0de9e55fcc
+[Updated README.md
+alex@das.li**20180413030108
+ Ignore-this: a43e98fe1214a862ac5db532e90a2354
+] 
+hash: 0000000316-922f4dffee0d9202f769550e8120a4bbd76dddb359005e2be58c263a92f7f2bb
+[Reorganized activities
+alex@das.li**20180417020829
+ Ignore-this: c4c7cfef38db438a017c992b4929c604
+ Moved common activities like `stdNarration` out of `Battle.MoveParameters` module and into `Activity` module;
+ Renamed `Battle.MoveParameters` as `Battle.Activity`;
+ Removed redundant import statements;
+ Copied battle items to field parameters after battle
+] 
+hash: 0000019941-32c11bcd15e2f2ceca0c1783fbf1d4537d79ea90e57d4c37b8714d91b8d3c01c
+[Field editor
+alex@das.li**20180420044351
+ Ignore-this: 6f40d80815818710dd76243c31896211
+ Added `Field.Editor` module that manipulates terrain;
+ Added mouse parameters to `Controls`
+] 
+hash: 0000005619-6ca3581d53b948ce56067ba0b35bdde4502b9362287c6ce2befd08c29ac9a432
+[Editor opening/closing
+alex@das.li**20180421014905
+ Ignore-this: dcc8c7c36e158c2952853f73c3219105
+ Added `EditorOpen` and `EditorClose` messages;
+ Made editor switch between closed and open states;
+ Moved `selfKeeper` into `Lightarrow` module
+] 
+hash: 0000003901-30fbcfa966bd223087b1236f8ff7681d65e31c6d7a4c954f812b1155594d6bb0
+[Interchangeable editor tools
+alex@das.li**20180422044720
+ Ignore-this: 76de475dc7667a5f79e5272387510995
+ Abstracted tool-specific terrain update from `manipulator`;
+ Created (grass-specific) tile painting tool;
+ Added tool-changer that cycles through tools;
+ Added tool-specific output;
+ Made model/view transformations simpler, more consistent;
+ Fixed terrain parameter-passing in `animateAvatar` and `animateCharacter`;
+ Added `Translucent` constructor for `Color`;
+ Fixed main text box width
+] 
+hash: 0000011730-cb51049b610caf5c70987b42ddd835dad57881c6f79692b1cbeaa515b716c380
+[New Field modules
+alex@das.li**20180423041828
+ Ignore-this: d3ba06064ba31a2e9aa8f79afe1f0bc4
+ Separated `Character`, `Terrain`, and `TerrainElement` data out into their own modules;
+ Cleaned out `MainAutomaton`
+] 
+hash: 0000022413-18615cacc371f63bea3331917b4e1a563d14d8d490153eda2074286406441a78
+[Map storage and loading
+alex@das.li**20180427165306
+ Ignore-this: 9faa509f4b03783c296f8e9734c2f1f2
+ Defined a small language of `TerrainElementExpression`s to define maps in a way amenable to `Read` and `Show` instances;
+ Rearranged the standard terrain data flow around `TerrainElementExpressions`;
+ Added `odGetMap` to `OfflineData`;
+ Changed `Ppmn` to refer to `MoveName`s instead of friend- and enemy-specific `MoveParameters`;
+ Changed `Terrain` and `effectiveness` to use `Array` instead of `Matrix`;
+ Removed `matrix` package
+] 
+hash: 0000014963-de6439a86ed1773ee6f33b03ce80528e0170f86fa789bcea88eacbc60f148375
+[Configurable editor tools
+alex@das.li**20180502160443
+ Ignore-this: f9875719775f6dc3df40f9e417d30a96
+ Reorganized editor around multiple tools that each swap between configuration and manipulation modes;
+ Added shifter to configure `Door` destination;
+ Added tools for other `TerrainElement`s;
+ Added `TerrainElement` stamp preview cursor;
+ Rendered editor text at smaller scale;
+ Changed `Terrain` to use `Map` instead of `Array`;
+ Changed `TerrainElement` to use `TileName` instead of `Maybe TileName`;
+ Removed position parameters from `EditorClick` message
+ Fixed `triggerSequence` and added `selfAlternate` to `Lightarrow` module;
+ Added texture copy modulation
+] 
+hash: 0000018750-41b4c045c5075898ec1dbfcfd90b609537b24311a17ef742cdc39b372fdc9af8
+[Door tool options
+alex@das.li**20180504014242
+ Ignore-this: 83af0e4330075fc0a3185820eee37075
+ Added hot spots to door tool configuration panel;
+ Added dragging interface to set door tool "position" option;
+ Added `EditorUnclick` message and "mouse up" event detection;
+ Added `Light` constructor to `Color`;
+ Changed `drawSmallText` to `drawTextScaled`, parameterized on relative scaling;
+ Parameterized `protagonist` and `mentor` on initial position
+] 
+hash: 0000007301-899bbfe95e2925060ae4f92a313fa30be82aa8603d00992e5929663a4194d7db
+[House interior editing
+alex@das.li**20180506003327
+ Ignore-this: 326da6a4720ee8d0c0266a5ec036cb27
+ Changed `Terrain` representation, added background color;
+ Changed `odGetMap` to produce a string, rather than `Terrain`;
+ Added background color tool to map editor;
+ Added house terrain elements;
+ Changed `blank` terrain element to colliding
+] 
+hash: 0000010657-f8ab3e85d9e3aba99871ab950eee5d3d2062cb860227bad3889603def6f31488
+[Abstracted `TerrainElementExpression`s
+alex@das.li**20180507000120
+ Ignore-this: d5ae1a45f6bdfa226cc3cb11f00db9d7
+ Added `Basic` terrain element representation to replace all elements that lack attached activities, parameterized it on tile name and colliding flag;
+ Changed `Door` to `Portal`, parameterized it on another terrain element;
+ Changed `Prairie` to `Habitat`, parameterized it on another terrain element;
+ Changed editor tools to use shifters for all of these new parameters;
+ Cleaned up `Terrain` interface functions;
+ Derived `Enum`, `Read`, and `Show` for `TileName`
+] 
+hash: 0000022383-a7a57009fed1af2145f902061ae4a6fcdcb4b412566458c203e89e8388f67684
+[Habitat tool options
+alex@das.li**20180512203907
+ Ignore-this: 7d10d0fb1fd0316e2761afd4578cec90
+ Changed the parameterization for wild encounters to use one encounter rate and populations of enemies to choose from;
+ Reduced the expression of an enemy in a habitat to a name and a level;
+ Added move-learning schedules to `Field.Ppmn` profiles;
+ Added shifter for new encounter parameters to habitat tool;
+ Added one-dimensional drag control;
+ Abstracted hotspot click filtering;
+ Added Erase tool;
+ Added colored overlays to special tiles when editing;
+ Renamed map names to be obviously distinct
+] 
+hash: 0000019239-12e095f929dff11bc36959bfecbe73ee1905b12491a1bc763b6f1bc0877a7857
+[Official editor release
+alex@das.li**20180512224938
+ Ignore-this: d5c1c18a443e8a09ca784f95b59308b5
+ Added hack to allow right mouse button in editor;
+ Removed reference to local sdl2 package;
+ Updated README.md
+] 
+hash: 0000005761-363a2504f86cb4d65c6e5a2f2e73a033f94ed95cbd003938d97ac2958f0d3e3c
+[Updated README.md
+alex@das.li**20180512231553
+ Ignore-this: a143c78aab144203f327160bbd2e2067
+] 
+hash: 0000002312-b7f3f58a542e1649777511fd09f7e88094e3e32a45c3ff44ea7db58c6c81394d
+[Map-specific character lists, framerate massaging
+alex@das.li**20180521161421
+ Ignore-this: 55a83a7445eb3a4b2358f4fb0d06f01d
+ Replaced `fpProfessor` in `FieldParameters` with `fpCharacters`;
+ Changed `locale` to use fpCharacters;
+ Parameterized `changeLocale` on characters list;
+ Used `PersonaName` module to identify characters in maps;
+ Added `Read` and `Show` instances for `Character`;
+ Added character list to output of editor save operation;
+ Fixed time leak with 50 characters by removing call to `performGC`;
+ Placed an upper bound on time step to remove "the wiggle";
+ Added character-specific walking controllers;
+ Added character-specific walking speed;
+ Added framerate counting;
+ Changed time step calculation to use `SystemTime` instead of `UTCTime`;
+ Added `TechnologyGuy` persona;
+ Added fade-to-black transition for changing locales;
+ Used default random number generators in `Character`s;
+ README.md formatting
+] 
+hash: 0000018952-0dcbb7ac036378e0f6308e695724d1935c1fa76d1aecd2d9b393b65ec0760372
+[Preliminary PEOPLE inventory
+alex@das.li**20180523011243
+ Ignore-this: acb4e64e15080e15bba473cabd840263
+ Used list of `Ppmn` instead of single `Ppmn` in `FieldParameters` and `BattleParameters`;
+ Renamed `EffectSwont` types as `Activity` types;
+ Changed `Controls` keyboard mappings to match Gambatte/OpenEmu emulator;
+ Increased battle vignette animation speed for smoothness;
+ Added fade-to-black transition from field to battle;
+ Changed `Field.Parameters.itemUse` to take its object as a formal parameter
+] 
+hash: 0000007415-c2a8a64e54b6fcf0506ffb247ad9cd8070c6e7f4e5a52c3a60f332b098e80c96
+[Menu index memory
+alex@das.li**20180601013906
+ Ignore-this: 8eecb3cdc80f3ef43d1830fd457e99e5
+ Made default menus dispatch the selected index along with normal dispatch;
+ Formalized the polymorphism of menu dispatches;
+ Made `cancel` usage consistent in menus;
+ Removed unnecessary OfflineData.hs-boot file and corresponding `{-\# SOURCE \#-}` import statementss;
+ Added `Character` instance declarations to Character.hs-boot file and removed unnecessary `Field.Character` import statement
+] 
+hash: 0000008202-262bc14f259053dae11868b2b06f10911006aeef2d0e39007787370debaafddc
+[Field menu looping
+alex@das.li**20180601170505
+ Ignore-this: 89214141fa9927be6fe9d86425f0c50b
+ Made Field menu options continue back to the menu;
+ Used menu index memory in Field menu;
+ Fixed `proseControl` button
+] 
+hash: 0000001399-8675d62bafcc5325cff31947b530fb19eb85a5bd8bbd5abfe4af74f4243bbffd
+[People menu and battle activities
+alex@das.li**20180605170219
+ Ignore-this: 23367b3ff08a17234dd1e702a2d029e8
+ Added People menu to view People inventory;
+ Added people-release activity;
+ Added death check and animation at the end of moves;
+ Added activity to remove the current Person after its death and deploy the next one;
+ Added battle transition animations
+] 
+hash: 0000009450-046dfabd6396f359aedee4cad14caaa64dfb45ec292518a7eb8a3ad14b92feaf
+[P-Phone item
+alex@das.li**20180608011520
+ Ignore-this: 94250a152f36af516e595229d5d5c088
+ Added person-catching item continuation;
+ Changed `ItemUse` battle continuation to use two stages, one for `ItemUse` and one for `BattleParameters`;
+ Replaced generic battle ending fade with continuation-specific fades defined in `Battle.Vignette`
+] 
+hash: 0000004954-d28c3cda5d456f49366a7693e4091a891876dedb9a7866c2c8fe02c4f36115e5
+[Battle menu and People-switching
+alex@das.li**20180610231032
+ Ignore-this: d5b89b0bbc9760a7b17eddd99200a95b
+ Added battle \"box\" menu and controls map;
+ Added People menu and People-switching continuation;
+ Added `recall` battle vignette
+] 
+hash: 0000006193-46474f2d34d5ac062e394a899ea1a49e49320606a2b7c4c929edc70cb84882ad
+[Fixed People updates in battle
+alex@das.li**20180610231157
+ Ignore-this: d74a64640407b106d1e72572eef0557f
+ Replaced `bpFriend` with `bpFriendIndex`;
+ Made `deployNextPpmn` respect the current (and next) friend index
+] 
+hash: 0000002861-1ccc066549bfb1a47397d6e47915e058d8d3bb5cf7543c7f4c5f293977e0b800
+[Reordering people
+alex@das.li**20180612061950
+ Ignore-this: 7bf6f0f2df045f880d2229b357f2fb15
+ Added people-reordering continuation to person menu within field menu;
+ Added text box to people inventory menu;
+ Added `choiceInlay` menu embedding to support embedding both text box and person menu
+] 
+hash: 0000004036-85b258fe3d35e2c630c90b97c4f014821153ead1ecb7480dd345e9bcf5c8398f
+[Trainer battles
+alex@das.li**20180614012551
+ Ignore-this: 8e8084dec14d55ecc6d554c8e754a691
+ Added `trainerBattle` activity to `Field.Battles`;
+ Changed `BattleParameters` to use a list of enemies as well as `Maybe` a set of trainer parameters;
+ Added enemy trainer activities to `Battle.Vignette`
+] 
+hash: 0000008796-a0120c9f7c272091d73f36e5b6741871ec38bcc8f1c02bb58ae5d087de01895e
+[Beginning image and music integration
+alex@das.li**20180718054533
+ Ignore-this: 784bbdce37e7215cc87a2b416817280f
+ Abstracted people menu and put it in `PpmnMenu` module;
+ Added new tiles;
+ Added background music transitions;
+ Added borders to menus and text boxes;
+ Added empty text box between narrations in battle;
+ Updated to LTS-12.0
+] 
+hash: 0000015541-0f7238bc23e5fdda36a3c1bd7878478f715d59b2559ec663181fd14d3747ff2d
+[Tightened up presentation
+alex@das.li**20180726173658
+ Ignore-this: 761bc73d84055e393bc651ad0798ebf9
+ Kept track of the state of each map with `fpWorld`;
+ Made `locale` produce the latest `FieldParameters` when it switches;
+ Parameterized tile drawing on a `DrawOrientation` to permit tile-flipping;
+ Parameterized `portal` on whether to fade to black before `changeLocale`;
+ Initialized `Controls` signal to zero in `locale` to detect held keys;
+ Added `MusicName` to each map and made `changeLocale` play new music;
+ Made `Mentor` change itself to defeated state after battle;
+ Made music fading to fork its own thread;
+ Changed from buggy `SDL.Mixer.playMusic` to `SDL.Mixer.playOn`;
+ Exposed `waitArrow` and `scrollSound` in `TextBox` module;
+ Added `pivot` and `snap` functions to `Character` module;
+ Added activities to wait for player confirmation;
+ Renamed auto-scrolling text to from `stdNarration` to `stdCommentary`;
+ Added a bunch of new tiles;
+ Added `-threaded` to default `ghc-options` in stack.yaml
+] 
+hash: 0000031128-5e4e2c1ad600e7a215af69d3a547ff6480d2eeeda5702a1c8f195cc7974255a9
+[Acceptance sounds, plus fixed state clobbering
+alex@das.li**20180727163244
+ Ignore-this: 24f47c7448e170f15dd4b0e11c5a086c
+ Abstracted `soundTrigger` as its own function;
+ Used `soundTrigger` in `TextBox.waiting`, `arrowWait`, `listMenu`;
+ Changed `locale` and `Field.Anchor.anchor` to traffic in avatar and characters only, instead of replacing entire `FieldParameters`
+] 
+hash: 0000002743-a352cfeff8fe87e4fee722be531d2edbe8755689564cb70a245d4507e09ac9ca
+[Status summary
+alex@das.li**20180728182016
+ Ignore-this: 8da1d67984442cf5e7635703719eccfe
+ Made status summary more elaborate;
+ Changed `drawTiledBg` to use per-tile orientations;
+ Changed `PpmnParameters` to use `Double` for HP counts instead of `Int`;
+ Removed numerical conversions from HP functions
+] 
+hash: 0000006050-e48fc80f65adbae40e44102fc24af626c836017af39166a1971a4c836bd3d199
+[Added Ignoloof, abstracted summary elements
+alex@das.li**20180731161342
+ Ignore-this: 91979cb8e2ec99da031b939b28cb8ef8
+] 
+hash: 0000006548-a5c1700fa37c9485321eae7eaee8b29a3ccc57a71fa21376f8edd3fbdbd8d17d
+[Scrolling prose sections
+alex@das.li**20180801064905
+ Ignore-this: ab7bdd6d09af57995bfe59192660303a
+ Abstracted `stdProse` from `stdLecture` and `stdCommentary`;
+ Treated separate lines of prose as separate text boxes linked by `arrowWait`
+] 
+hash: 0000001148-143fe8e182dda4c3aa18c648cf96b3502d0520ea0e72845c443af8690329b016
+[`Exhibit` terrain element
+alex@das.li**20180803070427
+ Ignore-this: 398396342a8c4aa913ff208d2c11f36
+ Added `Exhibit` terrain element;
+ Added `exhibitTool` to the editor;
+ Added `Field.CardinalDirection` module;
+ Added bookshelf prose
+] 
+hash: 0000004989-e3b5d1852cc601d00804d6787d064a6b91574e868a3f7113b8882d4f64a37df7
+[Added `IgnoloofBack` sprite.
+alex@das.li**20181002163732
+ Ignore-this: 35902d7e5fad91e8dd38f409a0efe510
+] 
+hash: 0000000480-31f847a5e10a6a6ae41eb1b6ee7f00d0818e2fdebc0af8b8c8a2c0beb57dca90
+[Added PPhone item
+alex@das.li**20181002171704
+ Ignore-this: 16b6e1ac403484e323b8aea078e2cdc
+ Removed redundant import statements
+] 
+hash: 0000005229-f7046acf2dfbabc2fff5c26ac4c1d40be9c059922e7d51016018dcd0dc43d4cb
+[Fixed instances of `RandomGen`
+alex@das.li**20181026014817
+ Ignore-this: fa604f85f0cdb787b6153a35a65f71bb
+ Added specific implementations of `genRange`
+] 
+hash: 0000002328-037a4280991bb9e111b10d32ffa265b91b4163efda985d29a2cde0eb269becdf
+[Added "data" and "status" pages to people menu
+alex@das.li**20181028013115
+ Ignore-this: 7f6186eb1292661987d65ac2bae73d75
+ Added TextUtil and Output.Window modules
+ Reorganized Ppmn-related modules and functions as a `Ppmn` module
+] 
+hash: 0000037065-6c4551309d5f1ab541d47e3ab5e64d8e4124edddfd93810ee91ebcfb81d32c87
+[Filled out initial PEOPLE
+alex@das.li**20181031005053
+ Ignore-this: a56c6cde38a77049ae5c4b0972e7fb0a
+ Added sprites, labels, and prose for Unner and Blamotage
+ Removed Pidgey and Rattata
+] 
+hash: 0000009444-b9dafdd659da474c30c5070a96bbe20061dde99168de5306f3cb024fe71bec1d
+[Element fixes
+alex@das.li**20181101025827
+ Ignore-this: cc5cce83aa3dbf800b667ef74b96eef7
+ Removed old elements
+ Fixed embedding for elemental effect report
+] 
+hash: 0000002363-84e1ccd9b8009f07c2c70bc5546d910797eb66116144e76cfaa813b4acd09192
+[Modularized `locale`
+alex@das.li**20181102060606
+ Ignore-this: 5bb85c5c68be139ab82f59b3f43f2e5d
+ Renamed it `stdLocale`
+] 
+hash: 0000004317-3d625020240824139ba3d33f43292b2e290a9317ef9130f592ad26e7749d2e4d
+[Offline data updates
+alex@das.li**20181105061523
+ Ignore-this: 3a0b07e202cec809a87ede6c34354ab7
+ Added new names;
+ Used Enum class to generate file paths rather than listing them
+] 
+hash: 0000018050-55a339e3e4008f605e5cff3532f7ff304ba62fe5cf821869657bad06c680a7de
+[Locale and field anchor overhaul
+alex@das.li**20181114180459
+ Ignore-this: ab61cc6ced973c9f424ed3b9d3e1109
+ Made locales into frozen continuations;
+ Made anchor look up locale in the field parameters and apply a "scene" function parameter to it;
+ Removed characters, music, and terrain from field parameters;
+ Improved `keep` to not require a trigger event, so its continuation output is always updated;
+ Added `Scripts` module, defining a "script" (locales and FieldActions) for each map;
+ Revised `MainAutomaton` to produce `fpWorld` parameter from scripts
+] 
+hash: 0000033434-a96c968d3c2bd008b0c19bacc8762b726cdf6aaf6d116ce9fccd4ac09b6eaa36
+[People menu consolidation
+alex@das.li**20181115182407
+ Ignore-this: b13c1d4151ce25dcaf567d99e708bfd4
+ Moved people-menu stuff out of Field.Menu and into Ppmn.Menu
+] 
+hash: 0000006263-71a394a58360e50b2bf8643d7aacd9e438c6da103b25f8fac4f91d6124c3dad8
+[Hometown mock-up
+alex@das.li**20181205104341
+ Ignore-this: 3edecbbc56d288a3e392bd19f79434f1
+ Added control keys;
+ Updated editor basic tool with hot keys for switching tiles;
+ Updated `wander` character control to make speech easier;
+ Moved drawing functions out of `Field.Locale`;
+ Added `Courtyard` map
+] 
+hash: 0000011552-e412f84ffb08799e0f5c00d18e5a476e01208eaacd6b4d1d0bb847dc072ebd53
+[Starting area refinements
+alex@das.li**20190107060140
+ Ignore-this: 1ee7d2e436d471863fbe292b1e09d99f
+ Fixed walking/turning bug;
+ Fixed music change bugs;
+ Added music to standard locale;
+ Added scripts for family house;
+ Removed extraneous personae;
+ Added tile coordinates to editor display;
+ Reduced pixel scaling from 4 to 2;
+ Added new draw orientations;
+ Added new offline data
+] 
+hash: 0000021178-d5db01917d831c0eda9093708f9726e74a05c986af6bddac1da90ec1ee7c60da
+[Refinement and features
+alex@das.li**20190118182925
+ Ignore-this: 99b5cde9b579b3a54d9e216a5305faa1
+ Added text animation speed-up control;
+ Added list of moves to Ppmn status screen;
+ Added Ppmn cries;
+ Added catch probability for PPhone;
+ Added escape probability for Run command;
+ Added Kid persona;
+ Scripted mom healing after receiving Ppmn;
+ Scripted WeWoke characters;
+ Scripted new Hometown character;
+ Scripted Courtyard characters;
+ Removed placeholder moves, renamed Tackle to SuckerPunch, added EyePoke;
+ Removed weak effect for normal element moves;
+ Fixed and unified battle exit fading;
+ Fixed MeToo menu size;
+ Fixed sound fading
+] 
+hash: 0000041528-07a84938fc90172f408d64a113f01790935fa8dddd72bf710ad46f7950088734
+[Features and bug fixes
+alex@das.li**20190121215555
+ Ignore-this: 728a2d44dc0c7b1ce419e5af3cbc099f
+ Added Ppmn-for-PPhone trading;
+ Added Jingle to receipt activities;
+ Added sounds and animation to SuckerPunch;
+ Revised general abstractions for output timing into `momentary` and `over`;
+ Fixed Ppmn inventory and indexing bugs;
+ Fixed HP display bugs
+] 
+hash: 0000014847-6047576d7a7814285e3a956b39f1c55ff4689cfc982a10d4a92bfe426ce7af39
+[Fixed menu index after `releasePpmn`
+alex@das.li**20190123175855
+ Ignore-this: 56141517487e1520688c4fc72c3f59e0
+] 
+hash: 0000000472-452fac64536fe83fca01c96a5bf6e46d43b919dcc23b428c9bb83fc9339009ea
+[New music
+alex@das.li**20190127175707
+ Ignore-this: 43178d430aec0b20d4942bf5723fa20c
+ Added `playMusicWithIntro`
+] 
+hash: 0000001243-2b84ba2110ada8a15461706e5ca5c7f0e6665e8c16ebb7d61fbff136355882f3
+[Hometown Woke scene
+alex@das.li**20190131174456
+ Ignore-this: 94b3acc34ab1d5471139288956691926
+ Modified Hometown and WeWoke scripts;
+ Moved portal traversal to Field.Activity as `enterNewMap`
+] 
+hash: 0000011453-1248b0680871356a5ae161dd8df76c88128ced770dc9124f0feab3b2cdd7b15e
+[People and Item menu canceling
+alex@das.li**20190201030538
+ Ignore-this: c403c12f724f5d937b131cdf23f74659
+ Added explicit menu options for canceling, in addition to the B-button cancel
+] 
+hash: 0000001434-a6ca20491e2144016790bd7bd9f394da2120bd4ebe492cc4871f62e32eecf56e
+[Avatar status page
+alex@das.li**20190205035637
+ Ignore-this: 51ff07da020a0fe5b710c705f977f643
+ Added `avatar` field menu item;
+ Added `PpmnCounters` datatype;
+ Added `fpCounters` and `fpAvatarName` to `FieldParameters`;
+ Added `Ditfy` script;
+ Changed continuations in `Field.Battles` to copy PpmnCounters between the field and battle;
+ Changed Battle anchor to increment kill, loss, and play counters;
+ Changed pPhone continuation to increment catch counters;
+ Changed PEOPLE status and detail pages to flip portraits horizontally;
+ Changed `WeWoke` script to observe avatar walking away from "locked" door
+ Bumped versions of Stack resolver to LTS-13.0 and Yampa package to 0.12
+] 
+hash: 0000009212-93864a50c7def8a84f26fc45e6922c044bb3caa4ce8b8a42cf5559fcb2b670e6
+[Introduction and ending
+alex@das.li**20190218063248
+ Ignore-this: 2a911bca28ac8e8caecfda2e726b8f9c
+ Added `Intro` and `Ending` modules;
+ Added `finalBattle` to `Field.Battles`;
+ Sequenced the Field continuation after death in battle;
+ Added `bpWin`, `bpLose` continuations to `BattleParameters`;
+ Disabled Run command in trainer battles;
+ Added `BossRoom` map;
+ Added `Ppmn.Species.You` module;
+ Added `Field.Personae.Donald` and `Field.Personae.Kid` modules;
+ Added `slideStretch` signal function;
+ Clamped interpolation variable in `timedInterp`;
+ Made `OfflineData` an instance of `TextSource`;
+ Added `drawSpriteOriented` convenience function
+] 
+hash: 0000032184-903d271a3635f30fc087b18373b6a9f33c7fffe0d740cc2b2b86bc0e5d19f724
+[Full PPhone functions
+alex@das.li**20190225004438
+ Ignore-this: b97f2b65580a0783e0e7e1e2c6cb7d98
+ Added PPhone throwing, capture, and release animations;
+ Disabled PPhones during trainer battles;
+ Added special music to WeWoke scenes;
+ Stopped music-with-intro from preempting on subsequent music;
+] 
+hash: 0000014841-ea3bce0abe6183c6ffa585ff2c5482cb28839f52adb44bd9b34ff9785e1b7b17
+[Fixed Potion
+alex@das.li**20190226044734
+ Ignore-this: 911d4867412718955db502c018f16236
+ Fixed embedding for item use in battle;
+ Added `bpAvatarName` to `ItemUse`;
+ Reorganized continuations and embeddings in Potion;
+] 
+hash: 0000005339-90e62b86973c3b0f454b03aef24714b79b02eb5bb453e3983ecf7b92211b6695
+[Fixed PPhone
+alex@das.li**20190226053045
+ Ignore-this: 6330c9918041989e184661c1df796a87
+ Added field continuation for PPhone;
+ Filled in iuAvatarName for field item use;
+] 
+hash: 0000001221-e4416b6735e8b8c0a1da9a8174a69249291cadcaa30452b3dc4ac77e4210e39c
+[Renamed Potion to Booch
+alex@das.li**20190304022918
+ Ignore-this: f85c30a5e99ffc9e557df09ac648dd20
+] 
+hash: 0000006091-e92b968fb79a62b709234b45be89ce1b9d1ae1f3ccaa77830948a34d9462a02d
+[Added Slidek species
+alex@das.li**20190304175846
+ Ignore-this: 4112567b3ee25058e3177f053e8e36a0
+] 
+hash: 0000002141-224cfe017fd8f1615e9e775f94ad35d3a272e381f08cfd77660342a2e18d6477
+[Added Incub species
+alex@das.li**20190304175959
+ Ignore-this: a0eace4725e92629519fd2af74b524f7
+ Fixed status screen element listing;
+ Added `Greed` element
+] 
+hash: 0000003678-dc653539a3bc7438888f494a08eff5420f984962933a1b9e9b67195e24bcef3f
+[Status summaries in People menu items
+alex@das.li**20190306184056
+ Ignore-this: a916ce6702b73412fce85b6ae0a25821
+] 
+hash: 0000003211-49a8a55183d6613c5ed6a81563f03ffe5de7a3c34d4142777229228f841cbd45
+[Ditfy character and item scripting
+alex@das.li**20190311182121
+ Ignore-this: 94d210e63b305df1723b5bb13e24c486
+ Added characters and an item to Ditfy script;
+ Changed `stdLocale` to track external signal functions for each character;
+ Added `controlCharacter` and `characterPhase` for constructing signal functions to track characters;
+ Added `holdItem` for constructing signal functions to track items;
+ Added `wanderRegion` character controller;
+ Doubled text scrolling speed;
+ Fixed `playSoloSound`
+] 
+hash: 0000016051-136f80711a139f44001d6738a6a911da4a51b6e1f5b8645726d1eb0e4190850f
+[Ditfy trainers
+alex@das.li**20190328003128
+ Ignore-this: 39f3418b3eda4ffc40ab764b877653a8
+ Unified `Character` control systems as monadic `CharacterActivity` actions;
+ Removed `animateAvatar`, `controlCharacter`, and `staticCharacters`;
+ Added `act`, `CharacterActivity`, and `Reaction`
+] 
+hash: 0000071075-d04f37777d90c5819d43f4f79cd125a60f01e86166da39569d7e15cfe2066582
+[Ditfy random encounters
+alex@das.li**20190329040622
+ Ignore-this: 2ba1275eff165ac873729d020dbf482b
+ Changed `timedSequence` to use `dSwitch`;
+ Added `AvatarTraverse` posting to avatar walking action
+] 
+hash: 0000002859-94f16e23349ef33fdd220e8b1e8b14cc59bd2d838b2e8c9a9f7070128632b4fb
+[Custom build for MacOS application bundle
+alex@das.li**20190330015402
+ Ignore-this: e9dca7e9867549112fb1e27cc281a354
+] 
+hash: 0000003624-c3f43723a551069d2de162951e7a38e8ccb323b6c6641ddb1a093fac6c5f270f
+[Balance and fixes
+alex@das.li**20190411012011
+ Ignore-this: ebfc65e4862a5375751c918807fd0a79
+] 
+hash: 0000025365-153a7f64dfbaf5b89fbf6023b0d762c87272a973d5b76a074b478c60a47e0692
+[Finalized alpha build
+alex@das.li**20190520164109
+ Ignore-this: 39272db43bda3eed182287483f4aff9a
+] 
+hash: 0000001108-19113c449927691c915a685cad7b4f501fb02906e352d94e0b9c7e21c1ad4c68
+[Final version
+alex@das.li**20190606235803
+ Ignore-this: f4322778bd2424b7519d68bfd4bff9dd
+] 
+hash: 0000038447-816ed53808699ea43276666e2dc3e017dd7a118806dbaf27d6977714a7629166
