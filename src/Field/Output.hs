@@ -2,7 +2,10 @@
 
 module Field.Output where
 
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
+import Data.VectorSpace
 
 import Data.Foldable
 import Field.Terrain
@@ -12,7 +15,7 @@ import OfflineData
 import Output
 import SpriteName
 
-screenCenterOffset = vector2 64 64 
+screenCenterOffset = vector2 64 64
 
 drawCharacter (Character { cDraw = draw, cPosition = (x, y) }) = draw (Point2 (x * 16) (y * 16 - 4))
 

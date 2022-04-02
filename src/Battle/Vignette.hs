@@ -7,7 +7,9 @@ import Control.Monad.State
 import Data.List
 import Data.Maybe
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import Battle.Activity
@@ -94,7 +96,7 @@ deployEnemy = do
     let embed3 = embedArr ((narration >.= drawEnemy) >.=)
     local (`compEmbed` embed3) (playCry enemy)
     stdHesitation (drawEnemy >.= narration)
-    
+
 recall = do
     drawEnemy <- gets sceneSecond
     drawEnemySummary <- gets sceneSecondSummary
@@ -115,7 +117,7 @@ faint = do
         descending object
     let embed2 = embedArr (>.= (drawOther >.= drawOtherSummary))
     local (const embed2) (stdLecture faintProse >>= arrowWait)
-     
+
 facingOffWild = gets (ppmnSprite . battleEnemy) >>= facingOff
 
 facingOffTrainer = facingOff
@@ -176,7 +178,7 @@ steppingForwardTrainer sprite = over 0.25 $ slide p0 p1 0.25 sprite
 descending object = over 0.25 $ slide p0 p1 0.2 (ppmnSprite object) >>> arr (>.= blank)
   where
     p0 = ppmnPosition object
-    p1 = Point2 (point2X p0) (point2Y p0 + 56) 
+    p1 = Point2 (point2X p0) (point2Y p0 + 56)
     sprite = ppmnSprite object
     blank = drawRectangle 56 56 White p1
 

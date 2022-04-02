@@ -9,7 +9,9 @@ import Control.Monad.Cont
 import Data.Bool
 import qualified Data.Text as T
 import FRP.Yampa hiding (left, right)
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 import System.Random
 
 import Activity
@@ -72,7 +74,7 @@ pivot newDirection c = c' { cAnimation = keep (gait c') }
   where  c' = c { cDirection = newDirection }
 
 snap c@(Character { cPosition = (x, y) }) = c { cPosition = (s x, s y) }
-  where s = fromIntegral . round 
+  where s = fromIntegral . round
 
 stance Character { cDirection = North,  cStances = stances }  = csNorthStance stances
 stance Character { cDirection = West,   cStances = stances }  = csWestStance stances

@@ -9,7 +9,9 @@ import Data.List
 import qualified Data.Map as M
 import qualified Data.Text as T
 import FRP.Yampa hiding (left, right)
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import ControlsMaps
@@ -48,7 +50,7 @@ weWokeInitial t0 rg = proc (avatar, news) -> do
 
 weWokeEntranceScene t0 rg = localeStarters starters selectFirst woke MainTheme t0 rg >>> (second sceneTrigger)
   where
-    woke          = act c0 (let loop = walking >> loop in loop) 
+    woke          = act c0 (let loop = walking >> loop in loop)
     c0            = pivot North (msWoke (1, (-2)))
     sceneTrigger  = after 1 (FieldAction trigger)
     trigger = do
@@ -161,7 +163,7 @@ phonePositions = [(-28, -44), (84, -108), (100, -108), (-124, -80), (52, -112), 
 drawPhone xlate orient (x, y) = withXlation xlate draw position
   where
     position = Point2 (fromIntegral x) (fromIntegral y)
-    draw = drawSpriteOriented orient SpriteName.PPhone  
+    draw = drawSpriteOriented orient SpriteName.PPhone
 
 drawAllPhones xlate = foldl ((. uncurry (drawPhone xlate)) . (>.=)) nullOut (zip phoneOrientations phonePositions)
 
@@ -205,7 +207,7 @@ selectStarter ppmn demeanor receive = do
     if confirmation
         then receive
         else return ()
-  where 
+  where
     message label = sentence '?' ["So! You want the ", demeanor, "PERSON, ", label]
 
 receive1 p remaining t0 woke0 rg = do

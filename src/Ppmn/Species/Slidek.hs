@@ -2,7 +2,7 @@
 
 module Ppmn.Species.Slidek where
 
-import FRP.Yampa.Geometry
+import Data.Point2
 
 import Battle.MoveName
 import LabelName

@@ -8,7 +8,9 @@ module Field.Scripts.FamilyHouse1F (
 import Control.Monad.State
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import Field.CardinalDirection
@@ -58,7 +60,7 @@ heal = map (\p -> p { ppmnHitPoints = ppmnMaxHitPoints p })
 familyHouse1F cs t0 = proc (avatar, news) -> do
     ((draw, sound, t), report) <- stdLocale cs TownTheme t0 -< (avatar, news)
     let xlate = characterXlate avatar
-        drawPhone = drawSpriteOriented TurnL PPhone  
+        drawPhone = drawSpriteOriented TurnL PPhone
         draw' = draw >.= withXlation xlate drawPhone (Point2 24 35)
     returnA -< ((draw', sound, t), report)
 

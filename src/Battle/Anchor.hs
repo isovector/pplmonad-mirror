@@ -8,7 +8,9 @@ import Control.Monad.Reader
 import Control.Monad.RWS
 import qualified Data.Map as M
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 import System.Random
 
 import Activity
@@ -46,7 +48,7 @@ anchorLoop k0 exit = do
         embedding = embedArr ((scene >.= summary >.= TB.drawConstant "") >.=)
     k <- local (embedding `compEmbed`) (choiceOverlay menu >>= (\(next, k) -> next >> return k))
     anchorLoop k exit
-    
+
 people = selectPpmn ChooseAPerson bpPpmn (personMenu personOptions)
 
 personOptions position =
@@ -98,7 +100,7 @@ items cancel = do
             local (const $ embedArr (scene >.=)) next
     (next, _) <- choiceReplace (menuControl >>> itemMenu run (cancel (), 0) inventory 0)
     preemptiveTurn next
- 
+
 turn friendMove = do
     friendSpeed <- gets (ppmnSpeed . bpFriend)
     enemySpeed <- gets (ppmnSpeed . bpEnemy)
@@ -158,7 +160,7 @@ checkBattleDone = do
     exit <- gets bpExit
     friend <- gets bpFriend
     enemy <- gets bpEnemy
-    if ppmnHitPoints enemy <= 0 
+    if ppmnHitPoints enemy <= 0
         then do
             drawFriend <- gets sceneFirst
             drawSummary <- gets sceneFirstSummary
@@ -182,7 +184,7 @@ deployNextEnemy exit = do
     if null ppmn'
         then do
             win <- gets bpWin
-            win >> exit () 
+            win >> exit ()
         else do
             modify (\bp -> bp { bpEnemies = ppmn' })
             deployEnemy
@@ -223,7 +225,7 @@ boxMenu options@[opt1, opt2, opt3, opt4] cancel k0 = attachOffsets >>> listMenu 
     offsets = [ vector2 0 0, vector2 48 0, vector2 0 16, vector2 48 16 ]
     attachOffsets = first (arr (flip (,) offsets))
 
-boxSelector initial down left right up = arr (mergeEvents . map curse) >>> accumHold initial 
+boxSelector initial down left right up = arr (mergeEvents . map curse) >>> accumHold initial
   where
     curse CursorDown  = Event $ down
     curse CursorLeft  = Event $ left

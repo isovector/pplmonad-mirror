@@ -7,7 +7,9 @@ import Data.List
 import qualified Data.Map as M
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Controls
 import ControlsMaps
@@ -160,7 +162,7 @@ eraseTool = tool effector shifter ()
     draw (x, y) = drawTextScaled 0.5 "Erase" (Point2 (fromIntegral x) (fromIntegral y))
     shifter _ = constant (drawEditorText "Erase", ())
 
-habitatTool = tool effector shifter (0.25, ((0, 3), 1)) 
+habitatTool = tool effector shifter (0.25, ((0, 3), 1))
   where
     effector = tileEffector effect
     effect options = selector (update options) (drawSpriteCursor (Translucent White) Wifi)

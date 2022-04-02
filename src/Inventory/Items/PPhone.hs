@@ -6,7 +6,9 @@ import Control.Monad.Reader
 import Control.Monad.State
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 import System.Random
 
 import Activity
@@ -70,7 +72,7 @@ totalFailure = do
         n1 <- stdCommentary (\s -> sentence '!' [prose Enemy s, label (ppmnName p) s, "loves its job"])
         stdHesitation n1
         n2 <- stdCommentary (\s -> sentence '.' [nameA `T.append` prose S s, label LabelName.PPhone s, "did not appeal to", prose Enemy s, label (ppmnName p) s])
-        stdHesitation n2 
+        stdHesitation n2
 
 announceToss = do
     name <- gets bpAvatarName

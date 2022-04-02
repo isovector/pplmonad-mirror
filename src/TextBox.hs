@@ -13,7 +13,9 @@ import Control.Monad
 import Control.Monad.Cont
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Lightarrow
 import Message
@@ -26,7 +28,7 @@ import Teletype
 import TextUtil
 
 drawBgExplicit rows position = drawWindow position (10, rows + 1)
-    
+
 drawBg = drawBgExplicit 2 (Point2 0 96)
 
 textPosition = Point2 8 112

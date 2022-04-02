@@ -9,7 +9,9 @@ import Control.Monad.Cont
 import Control.Monad.Reader
 import Control.Monad.State
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import Battle.Activity
@@ -101,7 +103,7 @@ friendDateProposal exit = do
 
 acceptOrReject :: (MonadTrans t, MonadReader (Embedding Controls OfflineIO b c) (t (Swont b c))) => OfflineIO -> t (Swont b c) Bool
 acceptOrReject = popUpMenu dateMenu
-desistOrContinue :: (MonadTrans t, MonadReader (Embedding Controls OfflineIO b c) (t (Swont b c))) => OfflineIO -> t (Swont b c) Bool 
+desistOrContinue :: (MonadTrans t, MonadReader (Embedding Controls OfflineIO b c) (t (Swont b c))) => OfflineIO -> t (Swont b c) Bool
 desistOrContinue = popUpMenu desistMenu
 
 popUpMenu menu narration = do
@@ -195,4 +197,4 @@ rejectionAgainProse params = sentence '!' [object, "kept resisting"]
 
 dateMenu = backgroundMenu 80 48 (Point2 64 44) $ columnMenu [(Accept, True), (Reject, False)] (False, 0) 0
 
-desistMenu = backgroundMenu 96 48 (Point2 64 44) $ columnMenu [(Desist, True), (Continue, False)] (True, 0) 0 
+desistMenu = backgroundMenu 96 48 (Point2 64 44) $ columnMenu [(Desist, True), (Continue, False)] (True, 0) 0

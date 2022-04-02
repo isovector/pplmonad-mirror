@@ -23,7 +23,7 @@ desiredAudioSpec = Audio {
 }
 
 screenScale = V2 4 4
-windowDimensions = fmap round $ (*) <$> screenScale <*> V2 160 144 
+windowDimensions = fmap round $ (*) <$> screenScale <*> V2 160 144
 
 floatSeconds tS = fromIntegral (systemSeconds tS) + fromIntegral (systemNanoseconds tS) / 1000000000
 
@@ -36,7 +36,7 @@ main = do
     rendererDrawBlendMode renderer $= BlendAlphaBlend
     setMouseLocationMode AbsoluteLocation
     cursorVisible $= False
-    openAudio desiredAudioSpec 1024 
+    openAudio desiredAudioSpec 1024
     rgen <- getStdGen
 
     od <- loadOfflineData renderer
@@ -90,6 +90,6 @@ output fpsRef od _ action = do
     putStr $ "\r" ++ show (1 / mean)
     hFlush stdout
     writeIORef fpsRef samples'
-    return False 
+    return False
   where
     renderer = odRenderer od

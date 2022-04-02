@@ -5,8 +5,8 @@ module Ppmn.Parameters where
 import qualified Data.Map as M
 import qualified Data.Text as T
 import Data.Maybe
-import FRP.Yampa.Geometry
 import System.Random
+import Data.Point2
 
 import Battle.MoveName
 import Controls
@@ -109,7 +109,7 @@ resetStages p = p {
 class PpmnAction s where
     actionObject :: s -> Ppmn
     actionObjectName :: s -> T.Text
-    actionSubject :: s -> Ppmn 
+    actionSubject :: s -> Ppmn
     actionSubjectName :: s -> T.Text
     actionUpdateObject :: Ppmn -> s -> s
     actionUpdateSubject :: Ppmn -> s -> s

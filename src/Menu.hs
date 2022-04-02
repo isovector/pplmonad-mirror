@@ -6,7 +6,9 @@ import Control.Monad.Cont
 import Control.Monad.Reader
 import Data.Bool
 import FRP.Yampa hiding (next)
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Lightarrow
 import Message
@@ -111,7 +113,7 @@ scrollPresenter labels t b = par zip $ map (arr . (. fst) . drawLabel) range
     range = take (b - t + 1) $ drop t labels
 
 -- selector
-listSelector initial next previous = arr (mergeEvents . map curse) >>> accumHold initial 
+listSelector initial next previous = arr (mergeEvents . map curse) >>> accumHold initial
   where
     curse CursorNext     = Event $ next
     curse CursorPrevious = Event $ previous

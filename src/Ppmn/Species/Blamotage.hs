@@ -2,7 +2,7 @@
 
 module Ppmn.Species.Blamotage where
 
-import FRP.Yampa.Geometry
+import Data.Point2
 
 import Battle.MoveName
 import LabelName
@@ -36,5 +36,5 @@ blamotageBase = Ppmn {
 
 blamotageLearnMove 1 = Just Battle.MoveName.SuckerPunch
 blamotageLearnMove 3 = Just Battle.MoveName.EyePoke
-blamotageLearnMove 6 = Just Battle.MoveName.MeToo 
+blamotageLearnMove 6 = Just Battle.MoveName.MeToo
 blamotageLearnMove _ = Nothing

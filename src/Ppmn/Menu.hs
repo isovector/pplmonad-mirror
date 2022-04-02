@@ -5,7 +5,9 @@ module Ppmn.Menu (selectPpmn, personMenu, releasePpmn, reorderPpmn, personDetail
 import Control.Monad.Reader
 import Control.Monad.State
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import ControlsMaps
@@ -25,7 +27,7 @@ import TextUtil
 peopleMenu run cancel ppmn k0 = fullscreenMenu menu
   where
     menu = scrollMenu 5 presenter ((map (id *** run) (ppmn `zip` [0 .. length ppmn - 1]))) cancel k0
-    presenter ppmn t b = ((par zip $ map (arr . (. fst) . (uncurry summary)) range) &&& extra) >>> arr (uncurry (flip (:))) 
+    presenter ppmn t b = ((par zip $ map (arr . (. fst) . (uncurry summary)) range) &&& extra) >>> arr (uncurry (flip (:)))
       where range = take (b - t + 1) $ drop t (ppmn `zip` rotations)
             extra = constant $ if b + 1 < length ppmn then summary (ppmn !! (b + 1)) (rotations !! (b + 1)) (Point2 8 88) else nullOut
     summary p orient x od = do
@@ -74,7 +76,7 @@ releasePpmn getPpmn putPpmn position = do
     name <- gets (label (ppmnName (ppmn !! position)))
     stdCommentary (const $ sentence '!' ["Let", name, "go"]) >>= stdHesitation
 
-personStatus p = do 
+personStatus p = do
     lift . swont $ constant (number >.= status >.= params >.= element) &&& after 0.75 ()
     local (const $ embedArr ((number >.= status >.= params >.= element) >.=)) (playCry p)
     local (const $ embedArr ((picture >.= number >.= status) >.=)) $ do
@@ -88,7 +90,7 @@ personStatus p = do
     params   = drawParams p (Point2 0 64)
     element  = drawElement p (Point2 80 72)
     moves    = drawMoves p (Point2 0 64)
- 
+
 personDetails p = do
     t <- gets (prose (ppmnDescription p))
     let lines = wrap 17 t
@@ -125,7 +127,7 @@ lastPage output = do
         command <- pageControl -< controls
         returnA -< (output, command)
 
-describe [l1, l2, l3] = 
+describe [l1, l2, l3] =
     drawText l1 (Point2 8 88) >.=
-    drawText l2 (Point2 8 104) >.= 
+    drawText l2 (Point2 8 104) >.=
     drawText l3 (Point2 8 120)

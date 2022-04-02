@@ -6,8 +6,8 @@ import Control.Monad.Cont
 import Control.Monad.RWS
 import Data.List
 import FRP.Yampa
-import FRP.Yampa.Geometry
 import FRP.Yampa.Task
+import Data.Vector2
 
 -- SF library
 
@@ -19,7 +19,7 @@ keep sf = KeepSF $ kSwitch (sf &&& (constant $ keep sf)) detect continue
     detect = constant (Event ()) >>> notYet
     continue frozen _ = next
       where
-        next = kSwitch (frozen >>> (second $ constant (KeepSF next))) detect continue 
+        next = kSwitch (frozen >>> (second $ constant (KeepSF next))) detect continue
 
 selfKeeper :: KeepSF a (b, Event c) -> SF a (b, Event (c, KeepSF a (b, Event c)))
 selfKeeper (KeepSF sf) = proc a -> do
@@ -37,7 +37,7 @@ timedSequence interval sfs = runCont k (error "timedSequence terminated")
   where k = mapM_ (dSwont . (&&& (after interval ()))) sfs
 
 timedUpdateSequence :: Time -> a -> [SF a a] -> SF a a
-timedUpdateSequence interval = (runTask_ .) . foldM receiver 
+timedUpdateSequence interval = (runTask_ .) . foldM receiver
   where
     receiver result phase = mkTask $ proc _ -> do
         out    <- phase             -< result

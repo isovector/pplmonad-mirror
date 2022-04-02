@@ -8,7 +8,9 @@ import Control.Monad.RWS
 import qualified Data.Map as M
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 import System.Random
 
 import Activity

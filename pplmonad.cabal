@@ -13,7 +13,6 @@ extra-source-files:  README.md
 custom-setup
   setup-depends: base >= 4.9 && < 5
                , Cabal
-               , cabal-macosx
 
 executable Peoplemon
   hs-source-dirs:      src
@@ -31,7 +30,8 @@ executable Peoplemon
                        sdl2-mixer,
                        text,
                        time,
-                       Yampa
+                       Yampa,
+                       simple-affine-space
   other-modules:       Activity
                        Battle
                        Battle.Activity
@@ -43,7 +43,7 @@ executable Peoplemon
                        Battle.Moves.MeToo
                        Battle.Moves.SuckerPunch
                        Battle.Output
-                       Battle.Parameters 
+                       Battle.Parameters
                        Battle.Vignette
                        Controls
                        ControlsMaps

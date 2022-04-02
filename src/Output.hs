@@ -11,7 +11,8 @@ import SDL hiding (identity, Event)
 import SDL.Mixer
 import SDL.Raw.Mixer
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Point2
+import Data.Vector2
 
 import MusicName
 import OfflineData
@@ -37,7 +38,7 @@ colorRGBA Black               = V4 0 0 0 255
 colorRGBA Blue                = V4 0 0 255 255
 colorRGBA Cyan                = V4 0 255 255 255
 colorRGBA (Dark color)        = V4 (darken r) (darken g) (darken b) a
-  where 
+  where
     darken = (`div` 2)
     V4 r g b a = colorRGBA color
 colorRGBA Green               = V4 0 255 0 255
@@ -49,7 +50,7 @@ colorRGBA Magenta             = V4 255 0 255 255
 colorRGBA Red                 = V4 255 0 0 255
 colorRGBA (Translucent color) = V4 r g b (a `div` 2)
   where
-    V4 r g b a = colorRGBA color 
+    V4 r g b a = colorRGBA color
 colorRGBA White               = V4 255 255 255 255
 colorRGBA Yellow              = V4 255 255 0 255
 
@@ -93,7 +94,7 @@ copyMod orient (V4 r g b a) renderer texture source dest = do
     copyEx renderer texture source dest rotate Nothing (V2 flipX flipY)
     textureColorMod texture $= oldColor
     textureAlphaMod texture $= oldAlpha
-    
+
 data DrawOrientation = Original | FlipX | FlipY | FlipBoth | TurnL | TurnR
     deriving (Enum, Eq, Read, Show)
 
@@ -133,10 +134,10 @@ drawText text (Point2 x y) od = foldMap (uncurry draw) typesetting
     typesetting = snd $ T.foldr setChar (fromIntegral $ 8 * (T.length text - 1), []) text
     setChar c (offset, zipped) = (offset - 8, (c, offset) : zipped)
 
-drawTextScaled factor text (Point2 x y) od = do 
+drawTextScaled factor text (Point2 x y) od = do
     scale <- get (rendererScale (odRenderer od))
     rendererScale (odRenderer od) $= (* realToFrac factor) <$> scale
-    drawText text (Point2 (x / factor) (y / factor)) od 
+    drawText text (Point2 (x / factor) (y / factor)) od
     rendererScale (odRenderer od) $= scale
 
 sentenceCase = (uncurry T.append) <<< (first T.toUpper) . (T.splitAt 1)

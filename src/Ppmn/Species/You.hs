@@ -2,8 +2,8 @@
 
 module Ppmn.Species.You where
 
-import FRP.Yampa.Geometry
 
+import Data.Point2
 import Battle.MoveName
 import LabelName
 import Ppmn.Parameters

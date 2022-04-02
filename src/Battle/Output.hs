@@ -3,7 +3,9 @@
 module Battle.Output where
 
 import qualified Data.Text as T
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Battle.ElementalEffect
 import Battle.Parameters

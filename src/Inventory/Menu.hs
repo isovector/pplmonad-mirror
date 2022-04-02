@@ -4,7 +4,9 @@ module Inventory.Menu where
 
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Inventory.Parameters
 import LabelName

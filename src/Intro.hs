@@ -6,7 +6,9 @@ import Control.Monad.RWS
 import Control.Monad.Reader
 import qualified Data.Text as T
 import FRP.Yampa
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import Activity
 import Controls
@@ -23,7 +25,7 @@ import SoundName
 import SpriteName
 import StateClass
 
-intro :: OfflineData -> Swont Controls OfflineIO T.Text 
+intro :: OfflineData -> Swont Controls OfflineIO T.Text
 intro od = fmap (\(x, _, ()) -> x) $ runRWST k (Embedding id) od
   where
     k = do
@@ -53,7 +55,7 @@ titleShake = do  momentary $ draw (shake 0) >.= play
            draw     = drawSprite Logo --drawText "PEOPLEMON"
            play     = playSound Crash >.= restartRepeatingMusic TitleTheme
 
-titleScreen = do  stdWait initialDraw 
+titleScreen = do  stdWait initialDraw
                   momentary $ initialDraw >.= playSound SoundName.Accept
                   over 0.5 $ time >>> arr raise >>> arr drawTitle
   where  raise t      = Point2 20 (32 - 64 * t)
@@ -91,7 +93,7 @@ welcome = do
     arrowWait n1
     n2 <- stdLecture (prose MyNameIsWokeI)
     arrowWait n2
-    fadeTo White 0.5 
+    fadeTo White 0.5
 
 explanation = do
     n1 <- stdLecture (prose InThisWorldThereAre)

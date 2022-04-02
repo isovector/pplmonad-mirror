@@ -17,7 +17,9 @@ module Ppmn.Output (
 ) where
 
 import qualified Data.Text as T
-import FRP.Yampa.Geometry
+import Data.Vector2
+import Data.Point2
+import Data.AffineSpace
 
 import {-# SOURCE #-} Battle.Moves (friendMoveByName)
 import Battle.Parameters
@@ -74,7 +76,7 @@ drawMoves ppmn position = drawWindow position (10, 5) >.= draw
     movesPadded = moves ++ replicate (4 - length moves) Hyphen
     offsets = [ vector2 16 (8 + fromIntegral n * 16) | n <- [0 .. length movesPadded - 1] ]
     drawMove name offset = drawLabel name (position .+^ offset)
-    
+
 drawHpBar position maxHp 0   = drawRectangle 0 2 (Dark (Dark White)) position
 drawHpBar position maxHp hp  = drawRectangle (max 1 $ 46 * max 0 hp / maxHp) 2 (Dark (Dark White)) position
 
@@ -103,11 +105,11 @@ drawHpMeter p position od = do
   where
     hp = ppmnHitPoints p
     maxHp = ppmnMaxHitPoints p
-    labelPos = vector2 (-16) (-13) 
-    barPos = vector2 1 0 
-    borderPosL = vector2 0 (-13) 
-    borderPosM = vector2 16 (-13) 
-    borderPosR = vector2 32 (-13) 
+    labelPos = vector2 (-16) (-13)
+    barPos = vector2 1 0
+    borderPosL = vector2 0 (-13)
+    borderPosM = vector2 16 (-13)
+    borderPosR = vector2 32 (-13)
 
 drawHpNumerals p position = drawText t position
   where
@@ -122,13 +124,13 @@ hpSummary showNumerals position p od = do
         else return ()
   where
     barPos = vector2 16 13
-    numeralPos = vector2 8 18 
+    numeralPos = vector2 8 18
 
 drawLevel p position od = do
     drawSprite LevelLabel position od
     drawText (T.pack $ show (ppmnLevel p)) (position .+^ numeralPos) od
   where
-    numeralPos = vector2 16 8 
+    numeralPos = vector2 16 8
 
 
 summaryArrow flip position = drawTiledBg position (5, 1) tiles
